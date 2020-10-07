@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const indexCtrl = require('../../controllers/index.controller')
+const blogCtrl = require('../../controllers/blog.controller');
 
-router.get('/', indexCtrl.renderIndex);
+router.get('/add-blog', blogCtrl.addingBlog);
 
-router.get('/about', indexCtrl.renderAbout);
+router.get('/all-blogs', blogCtrl.viewBlog);
 
-router.get('/contact', indexCtrl.renderContact)
+router.get('/single-blog', blogCtrl.singleBlog)
 
 module.exports = router

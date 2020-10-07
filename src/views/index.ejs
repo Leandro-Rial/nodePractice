@@ -10,7 +10,30 @@
     <%- include('partials/navbar.ejs') %>
     
     <div class="container">
-        <h1>Helouda</h1>
+
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+            <h1 id="home" class="mt-5 text-center">Blogs</h1>
+                <% if (blogs.length > 0) { %>
+                    <% blogs.forEach(blog => { %>
+                        
+                        <div class="card text-center mt-5">
+                            <div class="card-body">
+                            <h5 class="card-title"><%= blog.title %></h5>
+                            <hr>
+                            <p class="card-text"><%= blog.body %></p>
+                            <a href="#" class="btn btn-success">Read More</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                            2 days ago
+                            </div>
+                            
+                        </div>
+                    
+                    <% }) %>
+                <% } else { %>
+                    <p>There are no blogs to display</p>
+                <% } %> 
+
     </div>
 
 
