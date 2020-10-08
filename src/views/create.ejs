@@ -11,14 +11,14 @@
     
     <div class="container mt-5">
         <h1>Create</h1>
-        <form action="">
+        <form action="/blogs" method="POST">
             <div class="from-group">
                 <label for="title">Blog Title:</label>
-                <input type="text" id="title" class="form-control" required>
+                <input type="text" id="title" name="title" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="title">Blog Body:</label>
-                <textarea name="body" id="body" class="form-control" required></textarea>
+                <textarea name="body" id="body" name="body" class="form-control" required></textarea>
             </div>
             <button class="btn btn-warning">Submit</button>
         </form>

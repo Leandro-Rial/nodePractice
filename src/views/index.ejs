@@ -16,15 +16,17 @@
                 <% if (blogs.length > 0) { %>
                     <% blogs.forEach(blog => { %>
                         
-                        <div class="card text-center mt-5">
-                            <div class="card-body">
-                            <h5 class="card-title"><%= blog.title %></h5>
-                            <hr>
-                            <p class="card-text"><%= blog.body %></p>
-                            <a href="#" class="btn btn-success">Read More</a>
-                            </div>
+                        <div class="card text-center m-5">
+
+                            <a href="/blogs/<%= blog._id %> ">
+                                <div class="card-body">
+                                <h5 class="card-title"><%= blog.title %></h5>
+                            </a>
+                                <hr>
+                                <p class="card-text"><%= blog.body %></p>
+                                </div>
                             <div class="card-footer text-muted">
-                            2 days ago
+                                2 days ago
                             </div>
                             
                         </div>
@@ -33,7 +35,7 @@
                 <% } else { %>
                     <p>There are no blogs to display</p>
                 <% } %> 
-
+        </div>
     </div>
 
 

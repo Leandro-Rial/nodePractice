@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node</title>
+    <%- include('partials/head.ejs') %> 
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Details</h1>
+        <div class="card text-center mt-5">
+            <div class="card-body">
+                <h2 class="card-title"><%= blog.title %></h2>
+                <hr>
+                <p class="card-text m-5"><%= blog.body %></p>
+                <a class="btn btn-danger btn-block" id="btnDelete" data-doc="<%= blog._id %>">Delete</a>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer.ejs') %>
+
+    <script>
+        const btnDelete = document.querySelector('#btnDelete');
+
+        btnDelete.addEventListener('click', e => {
+            const endpoint = `/blogs/${btnDelete.dataset.doc}`;
+        
+        fetch(endpoint, {
+            method: 'DELETE'
+        })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch((err) => console.log(err));
+        })
+    </script>
+</body>
+</html>
